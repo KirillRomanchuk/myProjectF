@@ -1,21 +1,40 @@
-<%@ page language="java" isErrorPage="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.*, java.text.*" %>
+<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<html>
-<head>
-    <title>Login Page</title>
-</head>
-<body>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
 
-<h1>Вход в систему</h1><br/>
-<form method="get" action="${pageContext.request.contextPath}/app/login">
+<html lang="${sessionScope.lang}">
 
-    <input type="text" name="name"><br/>
-    <input type="password" name="pass"><br/><br/>
-    <input class="button" type="submit" value="Войти">
+<t:genericpage>
+    <jsp:attribute name="style">
+      <%@include file='css/signin.css' %>
+    </jsp:attribute>
+    <jsp:attribute name="title">
+      Template Page
+    </jsp:attribute>
+    <jsp:attribute name="header">
+      <jsp:include page="WEB-INF/headerfooter/header.jsp"/>
+    </jsp:attribute>
+    <jsp:attribute name="footer">
+<%--      <p id="copyright">Copyright 2019, Bla-Bla-Bla Inc.</p>--%>
+    </jsp:attribute>
 
-</form>
-<br/>
-<a href="${pageContext.request.contextPath}/index.jsp">На головну</a>
-</body>
+    <jsp:body>
+        <body class="text-center">
+
+        <form class="form-signin" method="post" action="${pageContext.request.contextPath}/beautyhole/login">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+        </body>
+    </jsp:body>
+</t:genericpage>
 </html>
