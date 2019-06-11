@@ -1,6 +1,6 @@
 package com.beauty.model.dao;
 
-import com.beauty.model.converter.UserResultSetConverter;
+import com.beauty.model.converter.resultSetConverter.UserResultSetConverter;
 import com.beauty.model.entity.User;
 
 import java.util.List;
@@ -22,12 +22,21 @@ public class UserDao implements GenericDao<User> {
 
     @Override
     public User findById(int id) {
-        return null;
+        return dataSource.receiveFirstRecord("select *, users.iduser as user_id from users where user_id = ?",
+                resultSet -> userResultSetConverter.convert(resultSet),
+                preparedStatement ->
+                {
+                    preparedStatement.setInt(1, id);
+                }).orElse(null);
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        return dataSource.receiveRecords("select *, users.iduser as user_id from users",
+                resultSet -> userResultSetConverter.convert(resultSet),
+                preparedStatement ->
+                {
+                });
     }
 
     @Override
@@ -36,12 +45,12 @@ public class UserDao implements GenericDao<User> {
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteById(int id) {
 
     }
 
     public User findUserByEmailAndPassword(String email, String password) {
-        return dataSource.receiveFirstRecord("select *, users.id as user_id from users where email = ? and password = ?",
+        return dataSource.receiveFirstRecord("select *, users.iduser as user_id from users where email = ? and password = ?",
                 resultSet -> userResultSetConverter.convert(resultSet),
                 preparedStatement ->
                 {

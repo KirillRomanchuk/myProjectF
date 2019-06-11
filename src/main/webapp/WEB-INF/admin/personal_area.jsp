@@ -16,13 +16,13 @@
       <jsp:include page="/WEB-INF/headerfooter/header.jsp"/>
     </jsp:attribute>
     <jsp:attribute name="footer">
-      <p id="copyright">Copyright 2019, Bla-Bla-Bla Inc.</p>
+      <p id="copyright"></p>
     </jsp:attribute>
 
     <jsp:body>
         <div class="row">
             <div class="col-sm-4">
-                <p>Hi I'm the body in bootstrap!</p>
+                <p></p>
             </div>
         </div>
     </jsp:body>

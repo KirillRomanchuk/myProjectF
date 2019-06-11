@@ -27,7 +27,7 @@
 
 <body>
 <header>
-<%--    ${sessionScope.lang}--%>
+    <%--    ${sessionScope.lang}--%>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -58,6 +58,32 @@
                                 key="local.home"/> <span class="sr-only">(current)</span></a>
                     </c:if>
                 </li>
+                <li class="nav-item active">
+                    <c:if test="${role.equals(roleAdmin)}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/beautyhole/admin/timetable"
+                           role="button"> <fmt:message
+                                key="local.timetable"/> <span class="sr-only">(current)</span></a>
+                    </c:if>
+                    <c:if test="${role.equals(roleMaster)}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/beautyhole/master/timetable"
+                           role="button"> <fmt:message
+                                key="local.timetable"/> <span class="sr-only">(current)</span></a>
+                    </c:if>
+                    <c:if test="${role.equals(roleUser)}">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/beautyhole/user/timetable"
+                           role="button"> <fmt:message
+                                key="local.timetable"/> <span class="sr-only">(current)</span></a>
+                    </c:if>
+                </li>
+                <c:if test="${role.equals(roleAdmin)}">
+                    <li>
+
+                        <a class="nav-link" href="${pageContext.request.contextPath}/beautyhole/admin/user_list"
+                           role="button"> <fmt:message
+                                key="local.admin.bar.users"/> <span class="sr-only">(current)</span></a>
+
+                    </li>
+                </c:if>
             </ul>
 
 

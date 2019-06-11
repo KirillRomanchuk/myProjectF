@@ -2,7 +2,6 @@ package com.beauty.controller.command;
 
 import com.beauty.model.converter.UserLoginConverter;
 import com.beauty.model.entity.User;
-import com.beauty.model.entity.enums.Role;
 import com.beauty.model.service.UserService;
 import com.beauty.view.RedirectViewModel;
 import com.beauty.view.View;
@@ -10,8 +9,6 @@ import com.beauty.view.ViewModel;
 import com.google.protobuf.ServiceException;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 public class UserLogin implements Command {
 

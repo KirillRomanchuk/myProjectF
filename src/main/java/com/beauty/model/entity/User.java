@@ -45,7 +45,6 @@ public class User {
         return role;
     }
 
-
     public void setId(int id) {
         this.id = id;
     }

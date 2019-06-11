@@ -51,11 +51,11 @@ public class DataSource {
 
         try (
                 Connection connection = receiveConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         ) {
             parameters.accept(preparedStatement);
             preparedStatement.executeUpdate();
-            try (ResultSet rs = preparedStatement.getGeneratedKeys();) {
+            try (ResultSet rs = preparedStatement.getGeneratedKeys()) {
                 while (rs.next()) {
                     resultProcessor.accept(rs);
                 }
@@ -69,11 +69,11 @@ public class DataSource {
 
         try (
                 Connection connection = receiveConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         ) {
             parameters.accept(preparedStatement);
             preparedStatement.executeBatch();
-            try (ResultSet rs = preparedStatement.getGeneratedKeys();) {
+            try (ResultSet rs = preparedStatement.getGeneratedKeys()) {
                 while (rs.next()) {
                     resultProcessor.accept(rs);
                 }
@@ -89,7 +89,7 @@ public class DataSource {
 
         try (
                 Connection connection = receiveConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                PreparedStatement preparedStatement = connection.prepareStatement(query)
         ) {
             parameters.accept(preparedStatement);
             try (ResultSet rs = preparedStatement.executeQuery()) {

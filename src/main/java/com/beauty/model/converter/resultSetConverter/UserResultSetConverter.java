@@ -1,5 +1,6 @@
-package com.beauty.model.converter;
+package com.beauty.model.converter.resultSetConverter;
 
+import com.beauty.model.converter.Converter;
 import com.beauty.model.entity.User;
 import com.beauty.model.entity.enums.Role;
 

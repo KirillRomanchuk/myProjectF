@@ -16,36 +16,15 @@
       <jsp:include page="/WEB-INF/headerfooter/header.jsp"/>
     </jsp:attribute>
     <jsp:attribute name="footer">
-      <p id="copyright">Copyright 2019, Bla-Bla-Bla Inc.</p>
+      <p id="copyright"></p>
     </jsp:attribute>
 
     <jsp:body>
         <div class="row">
             <div class="col-sm-4">
-                <p>Hi I'm the body in bootstrap!</p>
+                <p></p>
             </div>
         </div>
     </jsp:body>
 </t:genericpage>
 </html>
-<%--
-<%@ page language="java" isErrorPage="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.*, java.text.*" %>
-
-<html>
-<body>
-<h2>
-  index!
-</h2>
-
-<br>
-<a href="${pageContext.request.contextPath}/app/login">Login</a>
-<br>
-<a href="${pageContext.request.contextPath}/app/registration">Registration form</a>
-<br>
-<a href="${pageContext.request.contextPath}/app/timetable">Time table</a>
-<br>
-<a href="${pageContext.request.contextPath}/app/exception">Exception</a>
-
-</body>
-</html>--%>

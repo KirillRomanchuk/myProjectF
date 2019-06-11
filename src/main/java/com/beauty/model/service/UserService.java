@@ -5,6 +5,8 @@ import com.beauty.model.entity.User;
 import com.beauty.model.entity.enums.Role;
 import com.google.protobuf.ServiceException;
 
+import java.util.List;
+
 public class UserService {
 
     private final UserDao userDao;
@@ -37,6 +39,10 @@ public class UserService {
     public int receiveUserId(User userData) {
         User user = this.userDao.findUserByEmailAndPassword(userData.getEmail(), userData.getPassword());
         return user.getId();
+    }
+
+    public List<User> getUserList() {
+        return userDao.findAll();
     }
 
 }

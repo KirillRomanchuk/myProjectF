@@ -20,11 +20,26 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="row">
-            <div class="col-sm-4">
-                <p></p>
-            </div>
-        </div>
+        <table id = "timeList" class="table table-sm table-striped">
+            <thead>
+            <tr>
+                <th>master</th>
+                <th>date</th>
+                <th>star time</th>
+                <th>end time</th>
+                <th>registration</th>
+            </thead>
+
+            <c:forEach var="timetable" items="${timetableList}">
+                <tr>
+                    <td>${timetable.getId()}</td>
+                    <td>${timetable.getMaster()}</td>
+                    <td>${timetable.getData()}</td>
+                    <td>${timetable.getStartTime()}</td>
+                    <td>${timetable.getUser()}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </jsp:body>
 </t:genericpage>
 </html>

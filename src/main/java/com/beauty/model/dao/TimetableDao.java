@@ -24,7 +24,7 @@ public class TimetableDao implements GenericDao <TimetableDao> {
     }
 
     @Override
-    public void delete(int id) {
+    public void deleteById(int id) {
 
     }
 }

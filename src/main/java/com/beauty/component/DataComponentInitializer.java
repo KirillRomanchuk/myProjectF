@@ -1,6 +1,6 @@
 package com.beauty.component;
 
-import com.beauty.model.converter.UserResultSetConverter;
+import com.beauty.model.converter.resultSetConverter.UserResultSetConverter;
 import com.beauty.model.dao.DataSource;
 import com.beauty.model.dao.UserDao;
 

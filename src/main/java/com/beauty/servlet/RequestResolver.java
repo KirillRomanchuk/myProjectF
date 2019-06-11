@@ -35,6 +35,7 @@ public class RequestResolver {
         getControllers.put("/admin/personal_area", r -> new PersonalArea().execute(r));
         getControllers.put("/master/personal_area", r -> new PersonalArea().execute(r));
         getControllers.put("/user/personal_area", r -> new PersonalArea().execute(r));
+        getControllers.put("/admin/user_list", r -> new UserList(webComponentInitializer.getUserService()).execute(r));
 
         postControllers.put("/login", r -> new UserLogin(webComponentInitializer.getUserService(), webComponentInitializer.getUserLoginConverter()).execute(r));
         postControllers.put("/registrationService", r -> new DoRegistration(webComponentInitializer.getUserService(), webComponentInitializer.getUserConverter()).execute(r));
